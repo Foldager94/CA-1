@@ -1,5 +1,8 @@
+DROP DATABASE IF EXISTS `CA-1`;
+DROP DATABASE IF EXISTS `CA-1_Test`;
 CREATE SCHEMA `CA-1` ;
 CREATE SCHEMA `CA-1_Test` ;
+USE `CA-1`;
 
 
 CREATE TABLE `CA-1`.`cars` (
@@ -19,7 +22,7 @@ CREATE TABLE `CA-1`.`members` (
 
 CREATE TABLE `CA-1`.`jokes` (
   `id` INT NOT NULL,
-  `Joke` VARCHAR(45) NOT NULL,
+  `Joke` VARCHAR(126) NOT NULL,
   `Type` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`));
   
