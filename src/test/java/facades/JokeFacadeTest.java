@@ -41,6 +41,7 @@ public class JokeFacadeTest {
     /**
      * Test of getJokeFacade method, of class JokeFacade.
      */
+    /**
     @Test
     public void testGetJokeFacade() {
         System.out.println("getJokeFacade");
@@ -52,9 +53,9 @@ public class JokeFacadeTest {
         fail("The test case is a prototype.");
     }
 
-    /**
+    
      * Test of getRenameMeCount method, of class JokeFacade.
-     */
+    
     @Test
     public void testGetRenameMeCount() {
         System.out.println("getRenameMeCount");
@@ -65,5 +66,5 @@ public class JokeFacadeTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+    */
 }

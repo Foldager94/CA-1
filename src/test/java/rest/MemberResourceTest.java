@@ -40,6 +40,7 @@ public class MemberResourceTest {
     /**
      * Test of getXml method, of class MemberResource.
      */
+    /*
     @Test
     public void testGetXml() {
         System.out.println("getXml");
@@ -51,9 +52,9 @@ public class MemberResourceTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of putXml method, of class MemberResource.
-     */
+    
+     //* Test of putXml method, of class MemberResource.
+     
     @Test
     public void testPutXml() {
         System.out.println("putXml");
@@ -63,5 +64,5 @@ public class MemberResourceTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+    */
 }

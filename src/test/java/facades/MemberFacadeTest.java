@@ -41,6 +41,7 @@ public class MemberFacadeTest {
     /**
      * Test of getMemberFacade method, of class MemberFacade.
      */
+    /*
     @Test
     public void testGetMemberFacade() {
         System.out.println("getMemberFacade");
@@ -52,9 +53,9 @@ public class MemberFacadeTest {
         fail("The test case is a prototype.");
     }
 
-    /**
+    
      * Test of getRenameMeCount method, of class MemberFacade.
-     */
+    
     @Test
     public void testGetRenameMeCount() {
         System.out.println("getRenameMeCount");
@@ -65,5 +66,5 @@ public class MemberFacadeTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+    */
 }

@@ -40,6 +40,7 @@ public class CarResourceTest {
     /**
      * Test of getJson method, of class CarResource.
      */
+    /*
     @Test
     public void testGetJson() {
         System.out.println("getJson");
@@ -51,9 +52,10 @@ public class CarResourceTest {
         fail("The test case is a prototype.");
     }
 
-    /**
+    
      * Test of putJson method, of class CarResource.
-     */
+     
+    
     @Test
     public void testPutJson() {
         System.out.println("putJson");
@@ -63,5 +65,5 @@ public class CarResourceTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+    */
 }

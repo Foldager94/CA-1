@@ -41,6 +41,7 @@ public class CarFacadeTest {
     /**
      * Test of getCarFacade method, of class CarFacade.
      */
+    /*
     @Test
     public void testGetCarFacade() {
         System.out.println("getCarFacade");
@@ -52,9 +53,9 @@ public class CarFacadeTest {
         fail("The test case is a prototype.");
     }
 
-    /**
+    
      * Test of getRenameMeCount method, of class CarFacade.
-     */
+     
     @Test
     public void testGetRenameMeCount() {
         System.out.println("getRenameMeCount");
@@ -65,5 +66,5 @@ public class CarFacadeTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+    */
 }

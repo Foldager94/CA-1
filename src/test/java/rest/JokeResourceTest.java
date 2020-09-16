@@ -40,6 +40,7 @@ public class JokeResourceTest {
     /**
      * Test of getJson method, of class JokeResource.
      */
+    /*
     @Test
     public void testGetJson() {
         System.out.println("getJson");
@@ -51,9 +52,9 @@ public class JokeResourceTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of putJson method, of class JokeResource.
-     */
+
+     //Test of putJson method, of class JokeResource.
+
     @Test
     public void testPutJson() {
         System.out.println("putJson");
@@ -63,5 +64,5 @@ public class JokeResourceTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+    */
 }
