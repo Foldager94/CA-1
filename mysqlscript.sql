@@ -5,12 +5,12 @@ VALUES    (1, 1997, "Ford", "E350", 3000),
 		  (4, 1996, "Jeep", "Grand Cherokee", 4999),
 		  (5, 2005, "Volvo", "V70", 44799);
           
-INSERT INTO CLASSMEMBER (id, NAVN, FAVSLIK)
+INSERT INTO CLASSMEMBER (ID, NAVN, FAVSLIK)
 VALUES ("na157", "Nicolas", "Salte Fisk"),
 	   ("aw116", "Alex", "Lakrids"),
        ("aa344", "Andreas", "Chokolade"),
        ("cf161", "Christoffer", "Vingummi");
-       
+
        
 INSERT INTO JOKE (id, joke, type) 
 VALUES (1, "Hvad hedder verdens fattigste konge? Kong Kurs", "Plat"),

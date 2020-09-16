@@ -5,20 +5,26 @@
  */
 package facades;
 
+import dtos.JokeDTO;
+import entities.ClassMember;
+import entities.Joke;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 
 public class JokeFacade {
-    
+
     private static JokeFacade instance;
     private static EntityManagerFactory emf;
-    
+
     //Private Constructor to ensure Singleton
-    private JokeFacade() {}
-    
-    
+    private JokeFacade() {
+    }
+
     /**
-     * 
+     *
      * @param _emf
      * @return an instance of this facade class.
      */
@@ -33,17 +39,52 @@ public class JokeFacade {
     private EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-    
-    //TODO Remove/Change this before use
-    public long getRenameMeCount(){
+
+    public List<JokeDTO> getAllJokes() {
         EntityManager em = emf.createEntityManager();
-        try{
-            long renameMeCount = (long)em.createQuery("SELECT COUNT(r) FROM RenameMe r").getSingleResult();
-            return renameMeCount;
-        }finally{  
+        TypedQuery<Joke> query = em.createQuery("SELECT j FROM Joke j", Joke.class);
+        
+        List<Joke> jokes = query.getResultList();
+        List<JokeDTO> JokeDTOs = new ArrayList();
+        
+        jokes.forEach((Joke joke) -> {
+            JokeDTOs.add(new JokeDTO(joke));
+        });
+        return JokeDTOs;
+    }
+
+    public JokeDTO getJokeByID(long id) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            Joke jokeOBJ = em.find(Joke.class, id);
+            return new JokeDTO(jokeOBJ);
+        }finally {
             em.close();
         }
+    }
+    
+    public List<JokeDTO> getAllJokesByType(String type) {
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Joke> query = em.createQuery("SELECT j FROM Joke j WHERE j.type LIKE :type", Joke.class);
+        query.setParameter("type", "%"+type+"%");
         
+        List<Joke> jokes = query.getResultList();
+        List<JokeDTO> JokeDTOs = new ArrayList();
+        
+        jokes.forEach((Joke joke) -> {
+            JokeDTOs.add(new JokeDTO(joke));
+        });
+        return JokeDTOs;
+    }
+    
+    public long getJokeCount() {
+        EntityManager em = emf.createEntityManager();
+        try {
+            long jokeCount = (long) em.createQuery("SELECT COUNT(r) FROM Joke r").getSingleResult();
+            return jokeCount;
+        } finally {
+            em.close();
+        }
     }
 
 }

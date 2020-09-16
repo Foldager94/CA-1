@@ -23,35 +23,43 @@ public class Joke implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private long id;
+    private String joke;
+    private String type;
 
-    public Long getId() {
+    public Joke(long id, String joke, String type) {
+        this.id = id;
+        this.joke = joke;
+        this.type = type;
+    }
+    
+    public Joke(){}
+
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
+    public String getJoke() {
+        return joke;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Joke)) {
-            return false;
-        }
-        Joke other = (Joke) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+    public void setJoke(String joke) {
+        this.joke = joke;
     }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+    
+    
 
     @Override
     public String toString() {
