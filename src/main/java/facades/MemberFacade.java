@@ -23,7 +23,7 @@ public class MemberFacade {
     
     public List<ClassMemberDTO> getAllMembers() {
         EntityManager em = emf.createEntityManager();
-        TypedQuery<ClassMember> query =  em.createQuery("SELECT m FROM ClassMembers m",ClassMember.class);
+        TypedQuery<ClassMember> query =  em.createQuery("SELECT m FROM ClassMember m",ClassMember.class);
         List<ClassMember> members = query.getResultList();
         List<ClassMemberDTO> memberDTOs = new ArrayList();
         members.forEach((ClassMember member) -> {

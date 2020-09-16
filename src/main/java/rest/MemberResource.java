@@ -25,7 +25,7 @@ import utils.EMF_Creator;
  *
  * @author Christoffer
  */
-@Path("Member")
+@Path("member")
 public class MemberResource {
     private static final EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory();
                
