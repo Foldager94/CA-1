@@ -5,8 +5,13 @@
  */
 package facades;
 
+import dtos.MemberDTO;
+import entities.Member;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -20,6 +25,16 @@ public class MemberFacade {
     //Private Constructor to ensure Singleton
     private MemberFacade() {}
     
+    public List<MemberDTO> getAllMembers() {
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Member> query =  em.createQuery("SELECT m FROM members m",Member.class);
+        List<Member> members = query.getResultList();
+        List<MemberDTO> memberDTOs = new ArrayList();
+        members.forEach((Member member) -> {
+            memberDTOs.add(new MemberDTO(member));
+        });
+        return memberDTOs;     
+    }
     
     /**
      * 
@@ -39,11 +54,11 @@ public class MemberFacade {
     }
     
     //TODO Remove/Change this before use
-    public long getRenameMeCount(){
+    public long getMemberCount(){
         EntityManager em = emf.createEntityManager();
         try{
-            long renameMeCount = (long)em.createQuery("SELECT COUNT(r) FROM RenameMe r").getSingleResult();
-            return renameMeCount;
+            long memberCount = (long)em.createQuery("SELECT COUNT(r) FROM member r").getSingleResult();
+            return memberCount;
         }finally{  
             em.close();
         }

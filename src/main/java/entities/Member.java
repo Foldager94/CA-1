@@ -23,16 +23,46 @@ public class Member implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String id;
+    private String navn; 
+    private String favSlik; 
 
-    public Long getId() {
+    public Member() {
+    }
+
+    public Member(String id, String navn, String favSlik) {
+        this.id = id;
+        this.navn = navn;
+        this.favSlik = favSlik;
+    }
+
+    public String getNavn() {
+        return navn;
+    }
+
+    public void setNavn(String navn) {
+        this.navn = navn;
+    }
+
+    public String getFavSlik() {
+        return favSlik;
+    }
+
+    public void setFavSlik(String favSlik) {
+        this.favSlik = favSlik;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
-
+    
+    
+    
+   
     @Override
     public int hashCode() {
         int hash = 0;
