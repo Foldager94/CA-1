@@ -5,7 +5,7 @@ CREATE SCHEMA `CA-1_Test` ;
 USE `CA-1`;
 
 
-CREATE TABLE `CA-1`.`cars` (
+CREATE TABLE `CA-1`.`car` (
   `id` INT NOT NULL,
   `Year` INT NOT NULL,
   `Make` VARCHAR(45) NOT NULL,
@@ -13,34 +13,34 @@ CREATE TABLE `CA-1`.`cars` (
   `Price` INT NOT NULL,
   PRIMARY KEY (`id`));
 
-CREATE TABLE `CA-1`.`members` (
+CREATE TABLE `CA-1`.`member` (
   `Studentid` VARCHAR(45) NOT NULL,
   `Name` VARCHAR(45) NOT NULL,
   `FavCandy` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`Studentid`));
 
 
-CREATE TABLE `CA-1`.`jokes` (
+CREATE TABLE `CA-1`.`joke` (
   `id` INT NOT NULL,
   `Joke` VARCHAR(126) NOT NULL,
   `Type` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`));
   
-  INSERT INTO cars (id, Year, Make, Model, Price)
+  INSERT INTO car (id, Year, Make, Model, Price)
 VALUES    (1, 1997, "Ford", "E350", 3000),
 		  (2, 1999, "Chevy", "Venture", 4900),
 		  (3, 2000, "Chevy", "Venture", 5000),
 		  (4, 1996, "Jeep", "Grand Cherokee", 4999),
 		  (5, 2005, "Volvo", "V70", 44799);
           
-INSERT INTO members (studentid, Name, FavCandy)
+INSERT INTO member (studentid, Name, FavCandy)
 VALUES ("na157", "Nicolas", "Salte Fisk"),
 	   ("aw116", "Alex", "Lakrids"),
        ("aa344", "Andreas", "Chokolade"),
        ("cf161", "Christoffer", "Vingummi");
        
        
-INSERT INTO jokes (id, joke, type) 
+INSERT INTO joke (id, joke, type) 
 VALUES (1, "Hvad hedder verdens fattigste konge? Kong Kurs", "Plat"),
 	(2, "Hvorfor er fisk så grimme? De er vandskabt", "Plat"),
     (3, "Hvad sagde jesus da han satte sig ind i taxaen? Sømmet i bund!", "Farjokes"),
