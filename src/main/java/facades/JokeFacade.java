@@ -8,10 +8,6 @@ package facades;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
-/**
- *
- * @author Christoffer
- */
 public class JokeFacade {
     
     private static JokeFacade instance;

@@ -85,7 +85,7 @@ public class ClassMember implements Serializable {
 
     @Override
     public String toString() {
-        return "entities.Member[ id=" + id + " ]";
+        return "entities.ClassMember[ id=" + id + " ]";
     }
     
 }
