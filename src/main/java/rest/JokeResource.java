@@ -37,9 +37,6 @@ public class JokeResource {
     @Context
     private UriInfo context;
 
-    public JokeResource() {
-    }
-
     @Path("/{id}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -54,7 +51,7 @@ public class JokeResource {
         return Response.ok().entity(GSON.toJson(FACADE.getAllJokes())).build();
     }
 
-    @Path("/{type}")
+    @Path("/type/{type}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllJokesByType(@PathParam("type") String type) {
