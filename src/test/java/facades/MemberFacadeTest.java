@@ -5,7 +5,7 @@
  */
 package facades;
 
-import entities.Member;
+import entities.ClassMember;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import org.junit.jupiter.api.AfterAll;
@@ -21,17 +21,17 @@ import utils.EMF_Creator;
  * @author Christoffer
  */
 public class MemberFacadeTest {
-     private static  EntityManagerFactory emf;
+    private static  EntityManagerFactory emf;
     private static  MemberFacade facade;
-      private Member m1;
-    private Member m2;
-    private Member m3;
+    private ClassMember m1;
+    private ClassMember m2;
+    private ClassMember m3;
     public MemberFacadeTest() {
     }
     
     @BeforeAll
     public static void setUpClass() {
-         emf = EMF_Creator.createEntityManagerFactoryForTest();
+        emf = EMF_Creator.createEntityManagerFactoryForTest();
         facade = MemberFacade.getMemberFacade(emf);
     }
     
@@ -42,12 +42,12 @@ public class MemberFacadeTest {
     @BeforeEach
     public void setUp() {
         EntityManager em = emf.createEntityManager();
-        m1 = new Member("id1", "jens", "kiks");
-        m2 = new Member("id2", "gert", "gifler");
-        m3 = new Member("id3", "kurt", "maregns");
+        m1 = new ClassMember("id1", "jens", "kiks");
+        m2 = new ClassMember("id2", "gert", "gifler");
+        m3 = new ClassMember("id3", "kurt", "maregns");
         try {
             em.getTransaction().begin();
-            em.createQuery("DELETE from member").executeUpdate();
+            em.createQuery("DELETE from ClassMember").executeUpdate();
             em.persist(m1);
             em.persist(m2);
             em.persist(m3);

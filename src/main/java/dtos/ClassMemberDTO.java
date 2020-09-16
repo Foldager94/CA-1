@@ -5,18 +5,18 @@
  */
 package dtos;
 
-import entities.Member;
+import entities.ClassMember;
 
 /**
  *
  * @author Christoffer
  */
-public class MemberDTO {
+public class ClassMemberDTO {
    private String id; 
    private String navn; 
    private String favSlik; 
 
-    public MemberDTO(Member member) {
+    public ClassMemberDTO(ClassMember member) {
         this.id = member.getId();
         this.navn = member.getNavn();
         this.favSlik = member.getFavSlik();

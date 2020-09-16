@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @XmlRootElement
-public class Member implements Serializable {
+public class ClassMember implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -27,10 +27,10 @@ public class Member implements Serializable {
     private String navn; 
     private String favSlik; 
 
-    public Member() {
+    public ClassMember() {
     }
 
-    public Member(String id, String navn, String favSlik) {
+    public ClassMember(String id, String navn, String favSlik) {
         this.id = id;
         this.navn = navn;
         this.favSlik = favSlik;
@@ -73,10 +73,10 @@ public class Member implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Member)) {
+        if (!(object instanceof ClassMember)) {
             return false;
         }
-        Member other = (Member) object;
+        ClassMember other = (ClassMember) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

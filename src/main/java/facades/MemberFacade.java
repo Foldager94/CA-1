@@ -5,8 +5,8 @@
  */
 package facades;
 
-import dtos.MemberDTO;
-import entities.Member;
+import dtos.ClassMemberDTO;
+import entities.ClassMember;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -25,13 +25,13 @@ public class MemberFacade {
     //Private Constructor to ensure Singleton
     private MemberFacade() {}
     
-    public List<MemberDTO> getAllMembers() {
+    public List<ClassMemberDTO> getAllMembers() {
         EntityManager em = emf.createEntityManager();
-        TypedQuery<Member> query =  em.createQuery("SELECT m FROM members m",Member.class);
-        List<Member> members = query.getResultList();
-        List<MemberDTO> memberDTOs = new ArrayList();
-        members.forEach((Member member) -> {
-            memberDTOs.add(new MemberDTO(member));
+        TypedQuery<ClassMember> query =  em.createQuery("SELECT m FROM ClassMembers m",ClassMember.class);
+        List<ClassMember> members = query.getResultList();
+        List<ClassMemberDTO> memberDTOs = new ArrayList();
+        members.forEach((ClassMember member) -> {
+            memberDTOs.add(new ClassMemberDTO(member));
         });
         return memberDTOs;     
     }
@@ -57,7 +57,7 @@ public class MemberFacade {
     public long getMemberCount(){
         EntityManager em = emf.createEntityManager();
         try{
-            long memberCount = (long)em.createQuery("SELECT COUNT(r) FROM member r").getSingleResult();
+            long memberCount = (long)em.createQuery("SELECT COUNT(r) FROM ClassMember r").getSingleResult();
             return memberCount;
         }finally{  
             em.close();
