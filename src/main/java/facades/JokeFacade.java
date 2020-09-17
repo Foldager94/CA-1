@@ -88,7 +88,7 @@ public class JokeFacade {
         }
     }
 
-    public Joke getRandomQuestion() {
+    public Joke getRandomJoke() {
         EntityManager em = emf.createEntityManager();
         Random random = new Random();
         int number = random.nextInt((int) getJokeCount());

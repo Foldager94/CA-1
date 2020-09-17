@@ -60,9 +60,17 @@ public class JokeResource {
  @Path("/random")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public Response getRandom() {
-       return Response.ok().entity(GSON.toJson(FACADE.getRandomQuestion())).build();
+    public Response getRandomJoke() {
+       return Response.ok().entity(GSON.toJson(FACADE.getRandomJoke())).build();
     }
+    @Path("/count")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public String getJokeCount() {
+        long count = FACADE.getJokeCount();
+        return "{\"count\":"+count+"}";  //Done manually so no need for a DTO
+    }
+
     /**
      * PUT method for updating or creating an instance of JokeResource
      *

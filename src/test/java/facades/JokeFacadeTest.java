@@ -5,25 +5,34 @@
  */
 package facades;
 
+import entities.Joke;
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import utils.EMF_Creator;
 
 /**
  *
  * @author Christoffer
  */
 public class JokeFacadeTest {
-    
+    private static EntityManagerFactory emf;
+    private static JokeFacade facade;
+    private Joke j1;
+    private Joke j2;
+    private Joke j3;
     public JokeFacadeTest() {
     }
     
     @BeforeAll
     public static void setUpClass() {
+        emf = EMF_Creator.createEntityManagerFactoryForTest();
+        facade = JokeFacade.getJokeFacade(emf);
     }
     
     @AfterAll
@@ -32,39 +41,44 @@ public class JokeFacadeTest {
     
     @BeforeEach
     public void setUp() {
+        EntityManager em = emf.createEntityManager();
+        j1 = new Joke(1,"dårlig joke 1", "type1");
+        j2 = new Joke(2,"dårlig joke 2", "type2");
+        j3 = new Joke(3,"dårlig joke 3", "type2");
+        try {
+            em.getTransaction().begin();
+            em.createQuery("DELETE from Joke").executeUpdate();
+            em.persist(j1);
+            em.persist(j2);
+            em.persist(j3);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
     }
     
     @AfterEach
     public void tearDown() {
     }
 
-    /**
-     * Test of getJokeFacade method, of class JokeFacade.
-     */
-    /**
     @Test
-    public void testGetJokeFacade() {
-        System.out.println("getJokeFacade");
-        EntityManagerFactory _emf = null;
-        JokeFacade expResult = null;
-        JokeFacade result = JokeFacade.getJokeFacade(_emf);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testJokeCount() {
+        assertEquals(3,facade.getJokeCount(),"Expects three jokes in the database");
     }
-
-    
-     * Test of getRenameMeCount method, of class JokeFacade.
     
     @Test
-    public void testGetRenameMeCount() {
-        System.out.println("getRenameMeCount");
-        JokeFacade instance = null;
-        long expResult = 0L;
-        long result = instance.getRenameMeCount();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testGetRandomJoke(){
+        assertEquals(true,(facade.getRandomJoke().getId() <= facade.getJokeCount()));
     }
-    */
+    @Test
+    public void testNegativeGetRandomJoke(){
+        assertEquals(false,(facade.getRandomJoke().getId() > facade.getJokeCount()));
+    }
+    @Test
+    public void testGetJokeById(){
+     assertEquals(j1.getId(), facade.getJokeByID(j1.getId()).getId());
+    
+    }
+    
+    
 }
