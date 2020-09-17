@@ -1,9 +1,9 @@
 INSERT INTO CAR (id, Year, Make, Model, Price)
-VALUES    (1, 1997, "Ford", "E350", 3000),
-		  (2, 1999, "Chevy", "Venture", 4900),
-		  (3, 2000, "Chevy", "Venture", 5000),
-		  (4, 1996, "Jeep", "Grand Cherokee", 4999),
-		  (5, 2005, "Volvo", "V70", 44799);
+VALUES    (1, 1997, "Ford", "E350", 3000, "Lilla"),
+		  (2, 1999, "Chevy", "Venture", 4900, "Perlemors hvid"),
+		  (3, 2000, "Chevy", "Venture", 5000, "Kongeblå"),
+		  (4, 1996, "Jeep", "Grand Cherokee", 4999, "Cola Brun"),
+		  (5, 2005, "Volvo", "V70", 44799, "Peru brum");
           
 INSERT INTO CLASSMEMBER (ID, NAVN, FAVSLIK)
 VALUES ("na157", "Nicolas", "Salte Fisk"),

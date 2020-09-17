@@ -15,10 +15,21 @@ public class JokeDTO {
 
     private long id;
     private String joke;
+    private String type;
 
     public JokeDTO(Joke joke) {
         this.id = joke.getId();
         this.joke = joke.getJoke();
+        this.type = joke.getType();
+    }
+
+    public JokeDTO() {
+    }
+
+    
+    
+    public String getType() {
+        return type;
     }
 
     public long getId() {

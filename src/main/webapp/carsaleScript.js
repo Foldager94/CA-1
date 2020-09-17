@@ -1,9 +1,10 @@
-console.log("Script running");
 
-var url = "api/member/all";
+console.log("Script running carsaleScript");
+
+var url = "api/car/all";
 
 
-function reloadMembers(){
+function reloadCars(){
     fetch(url)
             .then(res => res.json()) //in flow1, just do it
             .then(lis => {
@@ -16,12 +17,14 @@ function reloadMembers(){
 
                 var tableHead = "<thead><tr>" +
                         "<th>ID</th>" +
-                        "<th>Navn</th>" +
-                        "<th>Favorit Slik</th>" +
-                        "</tr></thead>"
+                        "<th>Make</th>" +
+                        "<th>Model</th>" +
+                        "<th>Year</th>" +
+                        "<th>Price</th>" +
+                        "</tr></thead>";
 
                 function loadArray(lis) {
-                    var stringObj = "<td>" + lis.id + "</td><td>" + lis.navn + "</td><td>" + lis.favSlik + "</td>";
+                    var stringObj = "<td>" + lis.id + "</td><td>" + lis.make + "</td><td>" + lis.model + "</td><td>" + lis.year + "</td><td>" + lis.price + "</td>";
                     return "<tr>" + stringObj + "</tr>";
                 }
 
@@ -37,13 +40,7 @@ function reloadMembers(){
     //
     //            document.getElementById("list").innerHTML = lis
 
-            })}
-        reloadMembers();
-        document.getElementById("button").addEventListener("click", reloadMembers)
-
-
-
-
-
-
+            });}
+        reloadCars();
+        document.getElementById("button").addEventListener("click", reloadCars);
 

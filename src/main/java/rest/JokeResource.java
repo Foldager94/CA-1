@@ -57,7 +57,12 @@ public class JokeResource {
     public Response getAllJokesByType(@PathParam("type") String type) {
         return Response.ok().entity(GSON.toJson(FACADE.getAllJokesByType(type))).build();
     }
-
+ @Path("/random")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response getRandom() {
+       return Response.ok().entity(GSON.toJson(FACADE.getRandomQuestion())).build();
+    }
     /**
      * PUT method for updating or creating an instance of JokeResource
      *

@@ -6,12 +6,33 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Car SALE</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 40%;
+            }
+            td, th {
+                border: 1px solid #6e6e6e;
+                text-align: left;
+                padding: 8px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+        </style>
     </head>
     <body>
         <p><a href="https://www.vd52024.dk/CA-1/">Startside</a></p>
-        <div>TODO write content</div>
+       <h3>Car Sale</h3>
+        <table id="list"></table>
+        <br>
+        <button type="button" id="button">Reload Cars</button>
+        
+         <script src="carsaleScript.js"></script>
     </body>
 </html>
