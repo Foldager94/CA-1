@@ -3,5 +3,5 @@
 # Semester 3 CA-1
 ## Grupe 5
 
-..* hej
-..* nej
+* hej
+* nej
